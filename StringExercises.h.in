@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define StringExercises_VERSION_MAJOR @StringExercises_VERSION_MAJOR@
+#define StringExercises_VERSION_MINOR @StringExercises_VERSION_MINOR@
