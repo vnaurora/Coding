@@ -3,7 +3,14 @@
 #include <string>
 #include <algorithm>
 
-bool IsUniqueChar(const std::string& str)
+#include "StringExercises.h"
+
+bool MyTestFunc()
+{
+    return true;
+}
+
+bool StringExercises::IsUniqueChar(const std::string& str)
 {
     if (str.size() == 0) //check for empty string
     {
@@ -26,26 +33,26 @@ bool IsUniqueChar(const std::string& str)
 
     return true;
 }
-
-void run_IsUniqueChar()
-{
-    std::string s;
-    while (1)
-    {
-        std::cout << "Input a string? ";
-        getline(std::cin, s);
-        if (IsUniqueChar(s))
-        {
-            std::cout << "Unique!" << std::endl;
-        }
-        else
-        {
-            std::cout << "Duplicated!" << std::endl;
-        }
-        std::cin.get();
-    }
-
-}
+//
+//void run_IsUniqueChar()
+//{
+//    std::string s;
+//    while (1)
+//    {
+//        std::cout << "Input a string? ";
+//        getline(std::cin, s);
+//        if (StringExercises::IsUniqueChar(s))
+//        {
+//            std::cout << "Unique!" << std::endl;
+//        }
+//        else
+//        {
+//            std::cout << "Duplicated!" << std::endl;
+//        }
+//        std::cin.get();
+//    }
+//
+//}
 
 //==============================================
 bool CheckAnagram(const std::string& str1, const std::string& str2)
@@ -57,17 +64,6 @@ bool CheckAnagram(const std::string& str1, const std::string& str2)
     return s1 == s2;
 }
 
-void test_CheckAnagram()
-{
-
-}
-
-
-int main()
-{
-    run_IsUniqueChar()
-
-}
 
 
 
