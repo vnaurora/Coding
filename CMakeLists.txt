@@ -1,25 +1,28 @@
-cmake_minimum_required (VERSION 2.6)
+###############################
+#Root CMakeLists
+#By: NHQ
+#Copyright (c) 2016
+###############################
 
-project (Coding)
-# The version number.
-set (StringExercises_VERSION_MAJOR 1)
-set (StringExercises_VERSION_MINOR 0)
+cmake_minimum_required (VERSION 2.8)
 
-# configure a header file to pass some of the CMake settings
-# to the source code
-configure_file (
-  "${PROJECT_SOURCE_DIR}/StringExercises.h.in"
-  "${PROJECT_BINARY_DIR}/StringExercises.h"
-  )
+#Override rules to set compiler flags.
+#NOTE: this must be put before any project() is called.
+if (NOT CMAKE_TOOLCHAIN_FILE)
+set(CMAKE_USER_MAKE_RULES_OVERRIDE c_flags_overrides.cmake)
+set(CMAKE_USER_MAKE_RULES_OVERRIDE_CXX cxx_flags_overrides.cmake)
+endif()
 
-# add the binary tree to the search path for include files
-# so that we will find TutorialConfig.h
-include_directories("${PROJECT_BINARY_DIR}")
+include(platform_settings.cmake)
 
-include_directories ("${PROJECT_SOURCE_DIR}/MathFunctions")
-add_subdirectory (MathFunctions) 
-set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
+#Create root solution:
+project(Coding)
 
-add_executable(StringExercises StringExercises.cpp)
-target_link_libraries (Coding MathFunctions)
+#Add projects inside:
+#Dependencies
+add_subdirectory(Dependencies)
+#Data Structures code
+add_subdirectory(DataStructures)
 
+#Unit Tests code
+add_subdirectory(UnitTests)
