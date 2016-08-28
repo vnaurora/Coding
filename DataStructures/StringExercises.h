@@ -9,13 +9,15 @@
 #ifndef STRING_EXERCISES_H
 #define STRING_EXERCISES_H
 
-bool MyTestFunc();
-
-
+using namespace std;
 class StringExercises
 {
 public:
-    static bool IsUniqueChar(const std::string& str);
+    static bool IsUniqueChar(const string& str);
+    static bool StringExercises::constructRansomNote(const std::string& ransomNote,
+        const string magazine);
+
+    static void ReplaceSpace(const std::string& rStrIn, std::string& rStrOut);
 };
 
 #endif STRING_EXERCISES_H
