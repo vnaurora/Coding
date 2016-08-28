@@ -25,6 +25,7 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/../DataStructures)
 # Add cpp files
 set (UNIT_TESTS_SRC
     ${CMAKE_CURRENT_LIST_DIR}/gtest_StringExercises.cpp
+	${CMAKE_CURRENT_LIST_DIR}/gtest_ArrayExercises.cpp
 	${CMAKE_CURRENT_LIST_DIR}/main.cpp
     )
 	

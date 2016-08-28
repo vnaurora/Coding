@@ -1,15 +1,15 @@
 cmake_minimum_required (VERSION 2.8)
 
-project (StringExercises)
+project (DataStructures)
 # The version number.
-set (StringExercises_VERSION_MAJOR 1)
-set (StringExercises_VERSION_MINOR 0)
+set (DataStructures_VERSION_MAJOR 1)
+set (DataStructures_VERSION_MINOR 0)
 
 # configure a header file to pass some of the CMake settings
 # to the source code
 # configure_file (
-  # "${PROJECT_SOURCE_DIR}/StringExercises.h.in"
-  # "${PROJECT_SOURCE_BIN}/StringExercises_version.txt"
+  # "${PROJECT_SOURCE_DIR}/DataStructures.h.in"
+  # "${PROJECT_SOURCE_BIN}/DataStructures_version.txt"
   # )
 
 # add the binary tree to the search path for include files
@@ -17,18 +17,19 @@ set (StringExercises_VERSION_MINOR 0)
 include_directories(${PROJECT_SOURCE_DIR})
 
 # Create the list of source files
-set (STRING_EXECISES_SRC
+set (DATA_STRUCTURES_SRC
     ${CMAKE_CURRENT_LIST_DIR}/StringExercises.cpp
+	${CMAKE_CURRENT_LIST_DIR}/ArrayExercises.cpp
     )
 
 # Create the list of header files
-foreach(src_file IN LISTS STRING_EXECISES_SRC)
+foreach(src_file IN LISTS DATA_STRUCTURES_SRC)
   string(REGEX REPLACE .cpp .h hdr_file ${src_file})
-  list(APPEND STRING_EXECISES_HDR ${hdr_file})
-endforeach(src_file IN LISTS STRING_EXECISES_SRC)
+  list(APPEND DATA_STRUCTURES_HDR ${hdr_file})
+endforeach(src_file IN LISTS DATA_STRUCTURES_SRC)
 
-# add_executable(StringExercises ${STRING_EXECISES_HDR} 
-                               # ${STRING_EXECISES_SRC}
-							   # ${CMAKE_CURRENT_LIST_DIR}/StringExercises_main.cpp)
+# add_executable(DataStructures ${DATA_STRUCTURES_HDR} 
+                               # ${DATA_STRUCTURES_SRC}
+							   # ${CMAKE_CURRENT_LIST_DIR}/DataStructures_main.cpp)
 
-add_library(StringExercises STATIC ${STRING_EXECISES_HDR} ${STRING_EXECISES_SRC})
+add_library(DataStructures STATIC ${DATA_STRUCTURES_HDR} ${DATA_STRUCTURES_SRC})
