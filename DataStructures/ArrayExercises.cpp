@@ -7,6 +7,12 @@ Ref1: Cracking the Coding Interview 4edition (p48)
 Ref2: https://leetcode.com/problems/rotate-image/
 */
 //TODO: make in template: accept 1 or 3 channel matrix.
+
+//Solution 2: To rotate a matrix by 90 degrees, we can take a 2 steps solution:
+// Diagonally flip.
+//Horizontally flip.
+//Ref: https://discuss.leetcode.com/topic/54890/c-4ms-very-easy-to-understand-in-place-solution
+
 void ArrayExercises::RotateImage90(vector<vector<int>>& rMatrix)
 {
     //assume that input matrix is always correct (NxN).
@@ -67,6 +73,45 @@ void ArrayExercises::RotateImage90(vector<vector<int>>& rMatrix)
     }
 }
 
+/*
+Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.
+Ref: https://leetcode.com/problems/set-matrix-zeroes/
+*/
+
+void ArrayExercises::SetZeroes(vector<vector<int>>& rMatrix)
+{
+    //assume that input matrix is always correct (MxN).
+    int M = rMatrix.size();
+    int N = rMatrix[0].size();
+    vector<bool> row(M, false);
+    vector<bool> col(N, false);
+    for (int r = 0; r < M; r++)
+    {
+        for (int c = 0; c < N; c++)
+        {
+            if (rMatrix[r][c] == 0)
+            {
+                row[r] = true;
+                col[c] = true;
+            }
+        }
+    }
+
+    for (int r = 0; r < M; r++)
+    {
+        for (int c = 0; c < N; c++)
+        {
+            if (row[r] || col[c]) //only if either row or column has a 0
+            {
+                rMatrix[r][c] = 0;
+            }
+        }
+    }
+}
+
+
+
+
 bool ArrayExercises::compare(const vector < vector<int>>& rMatrix1,
     const vector < vector<int>>& rMatrix2)
 {
@@ -74,7 +119,7 @@ bool ArrayExercises::compare(const vector < vector<int>>& rMatrix1,
     //Otherwise, check for valid square matrix
     for (int r = 0; r < rMatrix1.size(); r++)
     {
-        for (int c = 0; c < rMatrix1.size(); c++)
+        for (int c = 0; c < rMatrix1[0].size(); c++)
         {
             if (rMatrix1[r][c] != rMatrix2[r][c])
             {

@@ -27,7 +27,7 @@ public:
     //};
     typedef std::pair<int, int> Point2i;
     static void RotateImage90(vector < vector<int>>& rMatrix);
-
+    static void SetZeroes(vector < vector<int>>& rMatrix);
     //helper function:
     static bool compare(const vector < vector<int>>& rMatrix1,
                         const vector < vector<int>>& rMatrix2);
