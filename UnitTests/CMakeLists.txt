@@ -31,6 +31,6 @@ set (UNIT_TESTS_SRC
 	
 add_executable(UnitTests ${UNIT_TESTS_SRC})
 target_link_libraries(UnitTests
-					  StringExercises
+					  DataStructures
                       gtest
                       gtest_main)
