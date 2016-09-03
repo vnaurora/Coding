@@ -111,6 +111,7 @@ void ArrayExercises::SetZeroes(vector<vector<int>>& rMatrix)
 
 
 
+//Helper function:
 
 bool ArrayExercises::compare(const vector < vector<int>>& rMatrix1,
     const vector < vector<int>>& rMatrix2)

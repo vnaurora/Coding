@@ -20,6 +20,7 @@ include_directories(${PROJECT_SOURCE_DIR})
 set (DATA_STRUCTURES_SRC
     ${CMAKE_CURRENT_LIST_DIR}/StringExercises.cpp
 	${CMAKE_CURRENT_LIST_DIR}/ArrayExercises.cpp
+	${CMAKE_CURRENT_LIST_DIR}/LinkedListExercises.cpp
     )
 
 # Create the list of header files
