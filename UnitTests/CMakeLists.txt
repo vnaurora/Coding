@@ -18,6 +18,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 # Test objects
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/../DataStructures)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/../Algorithms)
 
 ################################
 # Unit Tests
@@ -34,5 +35,6 @@ set (UNIT_TESTS_SRC
 add_executable(UnitTests ${UNIT_TESTS_SRC})
 target_link_libraries(UnitTests
 					  DataStructures
+					  Algorithms
                       gtest
                       gtest_main)

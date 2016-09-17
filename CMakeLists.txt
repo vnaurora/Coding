@@ -23,6 +23,7 @@ project(Coding)
 add_subdirectory(Dependencies)
 #Data Structures code
 add_subdirectory(DataStructures)
-
+#Algorithms code
+add_subdirectory(Algorithms)
 #Unit Tests code
 add_subdirectory(UnitTests)
