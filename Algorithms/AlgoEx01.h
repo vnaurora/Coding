@@ -13,9 +13,18 @@
 #include <string>
 #include <unordered_set>
 #include <unordered_map>
+
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {};
+};
+
 class AlgoEx01
 {
-public:
+public: 
     /**
 
     You have k lists of sorted integers.Find the smallest range that includes at least one number from each of the k lists.
@@ -53,6 +62,15 @@ public:
     **/
     std::vector<std::vector<std::string>> findLadders(std::string beginWord,
         std::string endWord, std::unordered_set<std::string> &wordList);
+
+
+    /**************************************
+    Find lowest common ancestor
+    https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+    ***************************************/
+    bool SearchNode(TreeNode* r, TreeNode* n);
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
+
 private:
 
     bool TestDiff(std::string w1, std::string w2);

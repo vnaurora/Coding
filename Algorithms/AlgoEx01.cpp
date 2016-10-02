@@ -43,7 +43,7 @@ std::pair<int, int> AlgoEx01::FindMinRangeOfKSortedLists(std::vector<std::vector
     while (1)
     {
         ListIter list_iter = q.top().second; //get the list iter of the top of the queue
-        int list_index = std::distance(rLists.begin(), list_iter); //convert iter to index int
+        auto list_index = std::distance(rLists.begin(), list_iter); //convert iter to index int
         ItemIter it = (*list_iter).begin();
         //increase item iter of that list.
         std::advance(it, ++vect_it[list_index]);
@@ -98,7 +98,7 @@ std::vector<std::vector<std::string>> AlgoEx01::findLadders(std::string beginWor
 {
     std::vector<std::vector<std::string>> ret;
     
-
+    return ret;
 }
 
 bool TestDiff(std::string w1, std::string w2)
@@ -138,7 +138,7 @@ std::vector<std::vector<std::string>> FindNextWord(const std::string& rWord,
             {
                 if (TestDiff(rWord, next_word.first))
                 {
-                    transformlist path = FindNextWord(next_word.first, rEndWord, rUsedList)
+                    //transformlist path = FindNextWord(next_word.first, rEndWord, rUsedList)
                 }
                 //(TestDiff(rWord, rWordList[it])))
             }
@@ -151,35 +151,28 @@ https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 **/
 /**
 * Definition for a binary tree node.
-* struct TreeNode {
-*     int val;
-*     TreeNode *left;
-*     TreeNode *right;
-*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-* };
-*/
+**/
 
-bool SearchNode(TreeNode* r, TreeNode* n)
+bool AlgoEx01::SearchNode(TreeNode* r, TreeNode* n)
 {
     if (!r) return false;
     if (r == n) return true;
     return (SearchNode(r->left, n) || SearchNode(r->right, n));
 }
 
-class Solution {
-public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if (!root) return nullptr;
+//UNFINISHED!
+TreeNode* AlgoEx01::lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) 
+{
+    if (!root) return nullptr;
 
-        TreeNode* l = lowestCommonAncestor(root->left, p, q);
-        if (!l) return l;
+    TreeNode* l = lowestCommonAncestor(root->left, p, q);
+    if (!l) return l;
 
-        TreeNode* r = lowestCommonAncestor(root->right, p, q);
-        if (!r) return r;
+    TreeNode* r = lowestCommonAncestor(root->right, p, q);
+    if (!r) return r;
 
-        if (SearchNode(root, p) && SearchNode(root, q))
-            return root;
+    if (SearchNode(root, p) && SearchNode(root, q))
+        return root;
 
-        return nullptr;
-    }
-};
+    return nullptr;
+}
