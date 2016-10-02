@@ -138,7 +138,7 @@ char StringExercises::FindTheDifference(string s, string t)
         if (m.find(s[i]) == m.end())
         {
             char a = s[i];
-            m.insert(std::make_pair(a, 1));
+            m.insert(std::make_pair(a, 1)); //Note: std::make_pair doesn't need to specify a type.
         }
         else
         {
