@@ -25,5 +25,7 @@ add_subdirectory(Dependencies)
 add_subdirectory(DataStructures)
 #Algorithms code
 add_subdirectory(Algorithms)
+#OODesign code
+add_subdirectory(OODesign)
 #Unit Tests code
 add_subdirectory(UnitTests)
