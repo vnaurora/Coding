@@ -176,3 +176,149 @@ TreeNode* AlgoEx01::lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* 
 
     return nullptr;
 }
+
+/**************************************
+Capture surrounded regions
+https://leetcode.com/problems/surrounded-regions/
+***************************************/
+#include <stack>
+void AlgoEx01::CaptureRegions(std::vector<std::vector<char>> & board)
+{
+    int row_num = board.size();
+    if (row_num == 0) return;
+    int col_num = board[0].size();
+    if (col_num == 0) return;
+    std::stack<std::pair<int, int>> todo;
+    //check first and last row
+    for (int c = 0; c < col_num; c++)
+    {
+        if (board[0][c] == 'O') {
+            board[0][c] = 'A';
+            todo.push(std::make_pair(0, c));
+        }
+        if (board[row_num-1][c] == 'O') {
+            board[row_num - 1][c] = 'A';
+            todo.push(std::make_pair(row_num - 1, c));
+        }
+    }
+    //check first and last column
+    for (int r = 1; r < row_num; r++)
+    {
+        if (board[r][0] == 'O') {
+            board[r][0] = 'A';
+            todo.push(std::make_pair(r, 0));
+        }
+        if (board[r][col_num - 1] == 'O') {
+            board[r][col_num - 1] = 'A';
+            todo.push(std::make_pair(r, col_num - 1));
+        }
+    }
+
+    while (!todo.empty())
+    {
+        std::pair<int, int> p = todo.top();
+        todo.pop();
+        //check left:
+        if (p.second > 1) {
+            if (board[p.first][p.second - 1] == 'O') {
+                board[p.first][p.second - 1] = 'A';
+                todo.push(std::make_pair(p.first, p.second - 1));
+            }
+        }
+        //check right:
+        if (p.second < col_num-1) {
+            if (board[p.first][p.second + 1] == 'O') {
+                board[p.first][p.second + 1] = 'A';
+                todo.push(std::make_pair(p.first, p.second + 1));
+            }
+        }
+        //check top
+        if (p.first > 1){
+            if (board[p.first-1][p.second] == 'O') {
+                board[p.first-1][p.second] = 'A';
+                todo.push(std::make_pair(p.first-1, p.second));
+            }
+        }
+        //check down
+        if (p.first < row_num - 1){
+            if (board[p.first + 1][p.second] == 'O') {
+                board[p.first + 1][p.second] = 'A';
+                todo.push(std::make_pair(p.first + 1, p.second));
+            }
+        }
+    }
+
+    for (int r = 0; r < row_num; r++) {
+        for (int c = 0; c < col_num; c++) {
+            if (board[r][c] == 'O') board[r][c] = 'X';
+            if (board[r][c] == 'A') board[r][c] = 'O';
+        }
+    }
+}
+
+/**************************************
+Decode ways
+https://leetcode.com/problems/decode-ways/
+Too long!! 
+Good solution using dynamic programming:
+https://discuss.leetcode.com/topic/7025/a-concise-dp-solution/12
+***************************************/
+int numDecodings(std::string s)
+{
+    if (s.size() == 0) return 0;
+    return computeDecodeWays(s, 0);
+}
+
+int computeDecodeWays(const std::string& s, int pos)
+{
+    if (pos == s.size()) return 1;
+    if (pos == (s.size() - 1)) {
+        return (s[pos] != '0') ? 1 : 0;
+    }
+
+    if (s[pos] > '2') {
+        return computeDecodeWays(s, pos + 1);
+    }
+    else if (s[pos] == '1') {
+        return computeDecodeWays(s, pos + 1) + computeDecodeWays(s, pos + 2);
+    }
+    else if (s[pos] == '2') {
+        return (s[pos + 1] <= '6') ?
+            computeDecodeWays(s, pos + 1) + computeDecodeWays(s, pos + 2) : computeDecodeWays(s, pos + 1);
+    }
+    else { //s[pos] == '0'
+        return 0;
+    }
+}
+
+/**************************************
+Permutation
+https://leetcode.com/problems/permutations/
+***************************************/
+#include <queue>
+vector<vector<int>> permute(vector<int> & nums)
+{
+    typedef vector<vector<int>> PerList;
+    if (nums.empty()) return PerList();
+
+    queue<vector<int>> prev, curr;
+    prev.push(vector<int>{nums[0]});
+    for (int i = 0; i < nums.size(); i++)
+    {
+        while (!prev.empty()) {
+            auto v = prev.front();
+            prev.pop();
+            for (int j = 0; j <= v.size(); j++) {
+                auto v2 = v;
+                v2.insert(v2.begin(), j, nums[i]);
+                curr.push(v2);
+            }
+        }
+        curr.swap(prev);
+    }
+    PerList ret;
+    while (!prev.empty()) {
+        ret.push_back(prev.front());
+        prev.pop();
+    }
+}

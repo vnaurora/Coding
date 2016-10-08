@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.8)
 
 project (Algorithms)
-
+set(ALGORITHMS_FOLDER_NAME "Algorithms")
 include_directories(${PROJECT_SOURCE_DIR})
 
 # Create the list of source files
@@ -25,3 +25,7 @@ set(ALGORITHMS_HDR
 							   # ${CMAKE_CURRENT_LIST_DIR}/Algorithms_main.cpp)
 
 add_library(Algorithms STATIC ${ALGORITHMS_HDR} ${ALGORITHMS_SRC})
+set_property(TARGET Algorithms PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
+
+add_executable(Permutation ${CMAKE_CURRENT_LIST_DIR}/Permutation.cpp)
+set_property(TARGET Permutation PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})

@@ -9,6 +9,7 @@
 #ifndef ALGO_EX_01_H
 #define ALGO_EX_01_H
 #include <utility>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_set>
@@ -22,6 +23,7 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {};
 };
 
+using namespace std;
 class AlgoEx01
 {
 public: 
@@ -71,8 +73,33 @@ public:
     bool SearchNode(TreeNode* r, TreeNode* n);
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
 
-private:
+    /**************************************
+    Capture surrounded regions
+    https://leetcode.com/problems/surrounded-regions/
+    ***************************************/
+    void CaptureRegions(std::vector<std::vector<char>> & board);
 
+    /**************************************
+    Decode ways
+    https://leetcode.com/problems/decode-ways/
+    ***************************************/
+    int numDecodings(std::string s);
+
+    /**************************************
+    Permutation
+    https://leetcode.com/problems/permutations/
+    ***************************************/
+    vector<vector<int>> permute(vector<int> & nums);
+
+private:
+    void PrintVector(vector<int> v)
+    {
+        std::cout << "[";
+        for (auto i : v) {
+            std::cout << i << ",";
+        }
+        std::cout << "]";
+    }
     bool TestDiff(std::string w1, std::string w2);
     std::vector<std::vector<std::string>> FindNextWord(std::string b,
         std::string end,
