@@ -14,17 +14,17 @@ vector<vector<int>> permute(vector<int> & nums)
     if (nums.empty()) return PerList();
 
     queue<vector<int>> prev, curr;
-    prev.push(vector<int>{nums[0]});
+    prev.push(vector<int>{nums[0]}); //note vectorint>(n) makes an vector of n ints.
     for (int i = 1; i < nums.size(); i++)
     {
         while (!prev.empty()) {
-            auto v = prev.front();
-            prev.pop();
+            auto & v = prev.front(); //auto & => reference, not copy.
             for (int j = 0; j <= v.size(); j++) {
-                auto v2 = v;
+                auto v2 = v; //=> copy to a new vector here
                 v2.insert(v2.begin()+j, nums[i]);
                 curr.push(v2);
             }
+            prev.pop(); //pop after use, otherwise, v is deleted.
         }
         curr.swap(prev);
     }
@@ -35,6 +35,9 @@ vector<vector<int>> permute(vector<int> & nums)
     }
     return ret;
 }
+
+//Note: time complexity is O(n!) (most efficent because it does n! things)
+// space complexity is O(N)
 
 void PrintVector(vector<int> v)
 {

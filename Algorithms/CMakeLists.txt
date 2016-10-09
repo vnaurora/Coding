@@ -29,3 +29,6 @@ set_property(TARGET Algorithms PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
 
 add_executable(Permutation ${CMAKE_CURRENT_LIST_DIR}/Permutation.cpp)
 set_property(TARGET Permutation PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
+
+add_executable(Trie ${CMAKE_CURRENT_LIST_DIR}/Trie.cpp)
+set_property(TARGET Trie PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
