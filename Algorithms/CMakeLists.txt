@@ -5,6 +5,9 @@ set(ALGORITHMS_FOLDER_NAME "Algorithms")
 include_directories(${PROJECT_SOURCE_DIR})
 
 # Create the list of source files
+set(COMMON_HDR
+	${CMAKE_CURRENT_LIST_DIR}/HelperFunctions.h)
+
 set (ALGORITHMS_SRC
     ${CMAKE_CURRENT_LIST_DIR}/AlgoEx01.cpp
     )
@@ -32,3 +35,16 @@ set_property(TARGET Permutation PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
 
 add_executable(Trie ${CMAKE_CURRENT_LIST_DIR}/Trie.cpp)
 set_property(TARGET Trie PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
+
+add_executable(FindCommonInTwoArrays ${CMAKE_CURRENT_LIST_DIR}/FindCommonInTwoArrays.cpp)
+set_property(TARGET FindCommonInTwoArrays PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
+
+add_executable(BinaryTree ${COMMON_HDR} 
+                          ${CMAKE_CURRENT_LIST_DIR}/BinaryTree.h
+						  ${CMAKE_CURRENT_LIST_DIR}/BinaryTree_main.cpp)
+set_property(TARGET BinaryTree PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
+
+add_executable(BST ${COMMON_HDR} 
+                          ${CMAKE_CURRENT_LIST_DIR}/BST.h
+						  ${CMAKE_CURRENT_LIST_DIR}/BST_main.cpp)
+set_property(TARGET BST PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
