@@ -37,7 +37,9 @@ public:
     }
 
     ~BinaryTree() {
-        DeleteNode(mRoot);
+        cout << "Delete Tree: ";
+        DeleteTree(mRoot);
+        cout << endl;
     }
 
     TreeNode* getRoot() {
@@ -46,14 +48,25 @@ public:
 
 protected:
     //build tree with vector
-    void BuildTree(const vector<int>& input) {
+    virtual void BuildTree(const vector<int>& input) {
         if (input.empty()) {
             mRoot = nullptr;
             return;
         }
         mRoot = AddNode(input, 0);
     }
+    //delete Tree:
+    void DeleteTree(TreeNode* node) {
+        if (!node) return;
+        DeleteTree(node->left);
+        DeleteTree(node->right);
+        cout << node->val << " ";
+        delete node;
+    }
 
+    TreeNode* mRoot;
+
+private:
     TreeNode* AddNode(const vector<int>& input, int index) {
         TreeNode* node = nullptr;
         if ((index < input.size()) && (input[index] < MAX_INT)) {
@@ -63,18 +76,6 @@ protected:
         }
         return node;
     }
-
-    //delete node:
-    void DeleteNode(TreeNode* node) {
-        if (!node) return;
-        DeleteNode(node->left);
-        DeleteNode(node->right);
-        //cout << "delete " << node->val << endl;
-        delete node;
-    }
-
-
-    TreeNode* mRoot;
 };
 
 #include <fstream>
