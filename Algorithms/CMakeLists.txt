@@ -48,3 +48,13 @@ add_executable(BST ${COMMON_HDR}
                           ${CMAKE_CURRENT_LIST_DIR}/BST.h
 						  ${CMAKE_CURRENT_LIST_DIR}/BST_main.cpp)
 set_property(TARGET BST PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
+
+############ EASY PROBLEMS ###################
+
+add_executable(StringToInt ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Easy/StringToInt.cpp)
+set_property(TARGET StringToInt PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
+
+add_executable(ReverseWords ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Easy/ReverseWords.cpp)
+set_property(TARGET ReverseWords PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
