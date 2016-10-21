@@ -58,3 +58,11 @@ set_property(TARGET StringToInt PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
 add_executable(ReverseWords ${COMMON_HDR} 
 						  ${CMAKE_CURRENT_LIST_DIR}/Easy/ReverseWords.cpp)
 set_property(TARGET ReverseWords PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
+
+add_executable(Sorting ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Easy/Sorting.cpp)
+set_property(TARGET Sorting PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
+
+add_executable(Sort3ColorBalls ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Easy/Sort3ColorBalls.cpp)
+set_property(TARGET Sort3ColorBalls PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
