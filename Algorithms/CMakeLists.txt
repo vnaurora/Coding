@@ -66,3 +66,8 @@ set_property(TARGET Sorting PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
 add_executable(Sort3ColorBalls ${COMMON_HDR} 
 						  ${CMAKE_CURRENT_LIST_DIR}/Easy/Sort3ColorBalls.cpp)
 set_property(TARGET Sort3ColorBalls PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
+
+############ MEDIUM PROBLEMS ###################
+add_executable(LongestStringWithoutDuplicates ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Medium/LongestStringWithoutDuplicates.cpp)
+set_property(TARGET LongestStringWithoutDuplicates PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Medium)
