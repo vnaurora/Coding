@@ -67,7 +67,15 @@ add_executable(Sort3ColorBalls ${COMMON_HDR}
 						  ${CMAKE_CURRENT_LIST_DIR}/Easy/Sort3ColorBalls.cpp)
 set_property(TARGET Sort3ColorBalls PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
 
+add_executable(ReverseInteger ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Easy/ReverseInteger.cpp)
+set_property(TARGET ReverseInteger PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
+
 ############ MEDIUM PROBLEMS ###################
 add_executable(LongestStringWithoutDuplicates ${COMMON_HDR} 
 						  ${CMAKE_CURRENT_LIST_DIR}/Medium/LongestStringWithoutDuplicates.cpp)
 set_property(TARGET LongestStringWithoutDuplicates PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Medium)
+
+add_executable(SearchRange ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Medium/SearchRange.cpp)
+set_property(TARGET SearchRange PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Medium)
