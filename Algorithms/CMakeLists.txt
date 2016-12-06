@@ -49,6 +49,25 @@ add_executable(BST ${COMMON_HDR}
 						  ${CMAKE_CURRENT_LIST_DIR}/BST_main.cpp)
 set_property(TARGET BST PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME})
 
+############ BASIC PROBLEMS ###################
+# SEARCH
+add_executable(BinarySearch ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Basic/BinarySearch.cpp)
+set_property(TARGET BinarySearch PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Basic/Search)
+
+#SORT:
+add_executable(BubbleSort ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Basic/BubbleSort.cpp)
+set_property(TARGET BubbleSort PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Basic/Sort)
+add_executable(QuickSort ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Basic/QuickSort.cpp)
+set_property(TARGET QuickSort PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Basic/Sort)
+
+#GRAPH:
+add_executable(Graph_BFS ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Basic/Graph_BFS.cpp)
+set_property(TARGET Graph_BFS PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Basic/Graph)
+
 ############ EASY PROBLEMS ###################
 
 add_executable(StringToInt ${COMMON_HDR} 
@@ -70,6 +89,10 @@ set_property(TARGET Sort3ColorBalls PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Ea
 add_executable(ReverseInteger ${COMMON_HDR} 
 						  ${CMAKE_CURRENT_LIST_DIR}/Easy/ReverseInteger.cpp)
 set_property(TARGET ReverseInteger PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
+
+add_executable(CountAndSay ${COMMON_HDR} 
+						  ${CMAKE_CURRENT_LIST_DIR}/Easy/CountAndSay.cpp)
+set_property(TARGET CountAndSay PROPERTY FOLDER ${ALGORITHMS_FOLDER_NAME}/Easy)
 
 ############ MEDIUM PROBLEMS ###################
 add_executable(LongestStringWithoutDuplicates ${COMMON_HDR} 
