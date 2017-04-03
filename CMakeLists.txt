@@ -29,3 +29,5 @@ add_subdirectory(Algorithms)
 add_subdirectory(OODesign)
 #Unit Tests code
 add_subdirectory(UnitTests)
+#C++ Examples code
+add_subdirectory(C++Examples)
