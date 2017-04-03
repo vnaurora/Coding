@@ -60,7 +60,12 @@ TEST(ReplaceSpace_test, AllSpace)
     StringExercises::ReplaceSpace(sin, sout);
     EXPECT_EQ(sout, "%20%20%20");
 }
-TEST(Addition, CanAddTwoNumbers)
+
+/* ======= FindTheDifference ============*/
+TEST(FindTheDifference_TestSuite, SimpleCase)
 {
-    EXPECT_TRUE((2+2) == 4);
+    string s1 = "abcd";
+    string s2 = "acbed";
+    char expected = 'e';
+    EXPECT_EQ(StringExercises::FindTheDifference(s1, s2), expected);
 }

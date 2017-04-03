@@ -18,6 +18,8 @@ public:
         const string magazine);
 
     static void ReplaceSpace(const std::string& rStrIn, std::string& rStrOut);
+
+    static char FindTheDifference(string s, string t);
 };
 
 #endif STRING_EXERCISES_H
